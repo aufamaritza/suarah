@@ -1,5 +1,5 @@
 // Configuration
-const API_BASE_URL = 'https://suarah-server.site/api/';
+const API_BASE_URL = 'https://suarah-server.site/api';
 
 // Global variables for recording
 let mediaRecorder;

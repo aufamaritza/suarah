@@ -1,7 +1,7 @@
 // Frontend Configuration
 const CONFIG = {
     // API Configuration
-    API_BASE_URL: 'https://suarah-server.site/api/',
+    API_BASE_URL: 'https://suarah-server.site/api',
     
     // Search Configuration
     DEFAULT_TOP_K: 3,
