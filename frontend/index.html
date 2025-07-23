@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pencarian Ayat Al-Quran dengan Suara</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Scheherazade+New:wght@400;700&family=Noto+Naskh+Arabic:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🕌 Pencarian Ayat Al-Quran dengan Suara</h1>
+        
+        <!-- Upload Audio Section -->
+        <div class="search-section">
+            <h2>Upload File Audio</h2>
+            <input type="file" id="audioFile" accept="audio/*">
+            <button onclick="searchByAudio()">🔍 Cari dengan Audio</button>
+        </div>
+
+        <!-- Recording Section -->
+        <div class="search-section">
+            <h2>Rekam Audio Langsung</h2>
+
+            <!-- Recording Guidelines -->
+            <div class="recording-guidelines">
+                <h3>📋 Panduan Rekam Audio:</h3>
+                <ul>
+                    <li>🎯 <strong>Disarankan baca 1 ayat lengkap</strong> untuk hasil terbaik</li>
+                    <li>🔇 <strong>Hindari kebisingan</strong> dan suara latar belakang</li>
+                    <li>🎧 <strong>Gunakan headphone/microphone eksternal</strong> untuk kualitas audio lebih baik</li>
+                    <li>🗣️ <strong>Ucapkan dengan jelas</strong> dan tidak terlalu cepat</li>
+                    <li>📍 <strong>Posisi dekat dengan microphone</strong> (jarak 15-30 cm)</li>
+                </ul>
+            </div>
+
+            <div id="recordingControls">
+                <button id="startRecord" onclick="startRecording()">🎤 Mulai Rekam</button>
+                <button id="stopRecord" onclick="stopRecording()" disabled>⏹️ Stop</button>
+                <button id="searchRecord" onclick="searchByRecording()" disabled>🔍 Cari</button>
+            </div>
+            <div id="recordingStatus">Siap untuk merekam</div>
+            <audio id="audioPlayback" controls style="display: none;"></audio>
+        </div>
+
+        <!-- Results Section -->
+        <div id="results" class="results"></div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,477 @@
+/* Reset and Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 20px;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    direction: ltr;
+    position: relative;
+}
+
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 40px;
+    box-shadow: 0 25px 80px rgba(0,0,0,0.3), 0 0 0 1px rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.3);
+}
+
+/* Typography */
+h1 {
+    text-align: center;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 40px;
+    font-size: 3.2em;
+    font-weight: 700;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Search Sections */
+.search-section {
+    margin-bottom: 35px;
+    padding: 30px;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+}
+
+.search-section h2 {
+    color: #4a5568;
+    margin-bottom: 20px;
+    font-size: 1.5em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.search-section h2::before {
+    content: '🎤';
+    font-size: 1.2em;
+}
+
+/* Form Elements */
+input[type="file"] {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 15px 0;
+    border: 2px solid rgba(102, 126, 234, 0.2);
+    border-radius: 15px;
+    font-size: 16px;
+    background: rgba(255, 255, 255, 0.8);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+input[type="file"]:focus {
+    outline: none;
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    transform: translateY(-2px);
+}
+
+/* Buttons */
+button {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    position: relative;
+    overflow: hidden;
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    transition: left 0.5s;
+}
+
+button:hover::before {
+    left: 100%;
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button:active {
+    transform: translateY(-1px);
+}
+
+button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Recording Guidelines */
+.recording-guidelines {
+    background: linear-gradient(135deg, rgba(255, 193, 7, 0.1), rgba(255, 152, 0, 0.1));
+    border: 1px solid rgba(255, 193, 7, 0.3);
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 25px;
+    backdrop-filter: blur(5px);
+}
+
+.recording-guidelines h3 {
+    color: #e65100;
+    margin-bottom: 15px;
+    font-size: 1.2em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.recording-guidelines ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.recording-guidelines li {
+    padding: 8px 0;
+    color: #5d4037;
+    font-size: 0.95em;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+
+.recording-guidelines li strong {
+    color: #bf360c;
+    font-weight: 600;
+}
+
+/* Recording Controls */
+#recordingControls {
+    margin: 20px 0;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#recordingControls button {
+    margin: 0;
+}
+
+#recordingStatus {
+    color: #667eea;
+    font-style: italic;
+    font-weight: 600;
+    padding: 10px 15px;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 10px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+}
+
+.recording {
+    background: linear-gradient(135deg, #ff4444, #ff6b6b) !important;
+    animation: recordPulse 1s infinite;
+}
+
+@keyframes recordPulse {
+    0% { 
+        opacity: 1; 
+        box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+    }
+    50% { 
+        opacity: 0.8; 
+        box-shadow: 0 8px 25px rgba(255, 68, 68, 0.5);
+    }
+    100% { 
+        opacity: 1; 
+        box-shadow: 0 4px 15px rgba(255, 68, 68, 0.3);
+    }
+}
+
+audio {
+    width: 100%;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+/* Results */
+.results {
+    margin-top: 40px;
+}
+
+.result-item {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 250, 252, 0.9));
+    padding: 30px;
+    margin: 25px 0;
+    border-radius: 20px;
+    border: 1px solid rgba(102, 126, 234, 0.2);
+    box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+    position: relative;
+    overflow: hidden;
+}
+
+.result-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+}
+
+.result-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+    border-color: rgba(102, 126, 234, 0.4);
+}
+
+.result-item h3 {
+    margin: 0 0 20px 0;
+    color: #2d3748;
+    font-size: 1.3em;
+    font-weight: 600;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.result-item p {
+    margin: 10px 0;
+    line-height: 1.8;
+    color: #4a5568;
+}
+
+/* Arabic Text Styling */
+.arabic-text {
+    font-size: 32px !important;
+    font-weight: 700;
+    line-height: 2.2;
+    background: linear-gradient(135deg, #1a202c, #2d3748, #4a5568);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic Typesetting', serif;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.15);
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+    direction: rtl;
+    unicode-bidi: bidi-override;
+}
+
+.arabic-text::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.03), rgba(118, 75, 162, 0.03));
+    border-radius: 12px;
+    z-index: -1;
+}
+
+.arabic-title {
+    font-size: 26px !important;
+    font-weight: 700;
+    background: linear-gradient(135deg, #667eea, #764ba2, #9f7aea);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    font-family: 'Amiri', 'Scheherazade New', 'Traditional Arabic', 'Arabic Typesetting', serif;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    letter-spacing: 0.5px;
+    direction: rtl;
+}
+
+.arabic-section {
+    background: linear-gradient(135deg, 
+        rgba(102, 126, 234, 0.08), 
+        rgba(118, 75, 162, 0.08), 
+        rgba(159, 122, 234, 0.05));
+    padding: 35px;
+    margin: 25px 0;
+    border-radius: 20px;
+    border: 2px solid rgba(102, 126, 234, 0.15);
+    backdrop-filter: blur(10px);
+    position: relative;
+    box-shadow: 
+        0 8px 32px rgba(102, 126, 234, 0.1),
+        inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    overflow: hidden;
+}
+
+.arabic-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #667eea, #764ba2, #9f7aea);
+}
+
+.arabic-section::after {
+    content: '📖';
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 2em;
+    opacity: 0.15;
+    filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));
+}
+
+.arabic-section p:first-child {
+    margin-top: 0;
+    font-weight: 600;
+    color: #4a5568;
+    font-size: 16px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 15px;
+}
+
+/* Score Badge */
+.score {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    color: white;
+    padding: 8px 16px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.score::before {
+    content: '⭐';
+    font-size: 12px;
+}
+
+/* Loading and Error States */
+.loading {
+    text-align: center;
+    padding: 40px;
+    color: #667eea;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.loading::before {
+    content: '🔍';
+    display: block;
+    font-size: 3em;
+    margin-bottom: 15px;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.error {
+    background: linear-gradient(135deg, rgba(255, 82, 82, 0.1), rgba(255, 107, 107, 0.1));
+    color: #e53e3e;
+    padding: 20px;
+    border-radius: 15px;
+    margin: 20px 0;
+    border: 1px solid rgba(229, 62, 62, 0.2);
+    backdrop-filter: blur(5px);
+}
+
+.error::before {
+    content: '⚠️ ';
+    font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .arabic-text {
+        font-size: 26px !important;
+        padding: 15px;
+    }
+    .arabic-title {
+        font-size: 20px !important;
+    }
+    .arabic-section {
+        padding: 25px 20px;
+    }
+    .container {
+        padding: 20px;
+        margin: 10px;
+    }
+    h1 {
+        font-size: 2.5em;
+    }
+    #recordingControls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    #recordingControls button {
+        margin: 5px 0;
+    }
+
+    /* Mobile Recording Guidelines */
+    .recording-guidelines {
+        padding: 15px;
+        margin-bottom: 20px;
+    }
+
+    .recording-guidelines h3 {
+        font-size: 1.1em;
+    }
+
+    .recording-guidelines li {
+        font-size: 0.9em;
+        padding: 6px 0;
+    }
+}
