@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": "http://IP_EC2_KAMU:PORT/api/$1"
+      "destination": "http://54.251.194.64:5050/api/$1"
     }
   ],
   "builds": [],
